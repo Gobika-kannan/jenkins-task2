@@ -6,21 +6,11 @@ on:
       - main
 
 jobs:
-  notify:
+  task2:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Send custom success email
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USER }}
-          password: ${{ secrets.EMAIL_PASS }}
-          to: yourmail@gmail.com
-          from: GitHub Actions
-          subject: "Task2 Trigger Test - SUCCESS"
-          body: |
-            Jenkins Task-2 trigger test successful.
-            Repository: Gobika-kannan/jenkins-task2
-            Branch: main
+      - name: Task2 Trigger Test
+        run: |
+          echo "Jenkins Task-2 trigger test successful"
+          exit 0
+
