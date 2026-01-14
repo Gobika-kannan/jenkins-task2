@@ -10,21 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Task2 Trigger Test Email
-        run: |
-          echo "Task2 trigger test successful"
-name: task2 trigger test
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  notify:
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Send custom success email
         uses: dawidd6/action-send-mail@v3
         with:
