@@ -1,4 +1,4 @@
-name: Email on Git Push
+name: task2 trigger test
 
 on:
   push:
@@ -10,20 +10,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Send email
+      - name: Task2 Trigger Test Email
+        run: |
+          echo "Task2 trigger test successful"
+name: task2 trigger test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send custom success email
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
           server_port: 587
-          secure: false
           username: ${{ secrets.EMAIL_USER }}
           password: ${{ secrets.EMAIL_PASS }}
-          to: gobikakannan2535@gmail.com
-          from: GitHub Actions gobikakannan2535@gmail.com
-          subject: "Git Push Triggered - Jenkins Task"
+          to: yourmail@gmail.com
+          from: GitHub Actions
+          subject: "Task2 Trigger Test - SUCCESS"
           body: |
-            A new commit was pushed to the repository.
-
-            Repository: ${{ github.repository }}
-            Branch: ${{ github.ref }}
-            Commit: ${{ github.sha }}
+            Jenkins Task-2 trigger test successful.
+            Repository: Gobika-kannan/jenkins-task2
+            Branch: main
